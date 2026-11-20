@@ -122,6 +122,11 @@
   .npc-foot { margin-top: 18px; font-size: 14px; color: var(--sub); text-align: center; }
   .npc-foot a { color: var(--pink-dark); font-weight: 700; }
 
+  @media (max-width: 420px) {
+    .npc-table { font-size: 14px; }
+    .npc-table th { font-size: 13px; }
+    .npc-table td { padding: 10px 3px; white-space: nowrap; }
+  }
   @media (max-width: 380px) {
     .npc-cards { grid-template-columns: 1fr; }
     .npc-main-age { font-size: 34px; }
@@ -200,7 +205,7 @@
   <p class="npc-table-title">출생연도별 한눈에 보기</p>
   <table class="npc-table">
     <thead>
-      <tr><th>출생연도</th><th>정상 수령</th><th>당겨 받기</th><th>늦춰 받기</th></tr>
+      <tr><th>출생연도</th><th>정상 수령</th><th>당겨 받기</th><th>늦춰 받기<br>(최대)</th></tr>
     </thead>
     <tbody id="npcTable"></tbody>
   </table>
@@ -242,7 +247,7 @@
         '<td>' + r.label + '</td>' +
         '<td>만 ' + r.age + '세</td>' +
         '<td>만 ' + (r.age - SHIFT) + '세</td>' +
-        '<td>만 ' + (r.age + SHIFT) + '세까지</td>' +
+        '<td>만 ' + (r.age + SHIFT) + '세</td>' +
         '</tr>';
     });
     $("npcTable").innerHTML = html;
